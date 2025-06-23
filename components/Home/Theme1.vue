@@ -8,11 +8,11 @@ const skus = ref([])
 const keyword = ref('')
 const selectedSKU = useState('SelectedSKU', () => { return {} })
 
-const filterSkus = (projects, keyword = '') => {
+const filterSkus = (projects, keyword = '', ) => {
   const allCates = [{ name: translate('All'), code: 'all' }]
   const showSkus = []
 
-  projects.forEach((project) => {
+  projects.filter((project) => project.id == props.projectId).forEach((project) => {
     if (!['DIGITAL', 'MANUAL', 'LICENSE', 'GROUP', 'VPN'].includes(project.type)) {
       return
     }
@@ -49,7 +49,7 @@ const filterSkus = (projects, keyword = '') => {
   skus.value = showSkus
 }
 
-const props = defineProps(['merchant'])
+const props = defineProps(['merchant', 'projectId'])
 const merchant = useDataMerchantInfo()
 merchant.value = props.merchant
 const siteSettings = merchant.value.website ? merchant.value.website.settings : {}

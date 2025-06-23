@@ -66,8 +66,22 @@ seoInit(merchantInfo)
 
 <template>
   <NuxtLayout name="simplified" :merchant="merchantInfo">
-    <HomeTheme1 v-if="themeId == '1'" :merchant="merchantInfo" />
-    <HomeTheme2 v-else-if="themeId == '2'" :merchant="merchantInfo" />
-    <HomeTheme1 v-else :merchant="merchantInfo" />
+   
+      <section class="flex justify-center w-full pt-[30vh] items-center container">
+        <div class="flex flex-col items-center justify-center gap-2">
+          <motion.h1 class=" text-center text-4xl font-bold" :initial="{ y: -50, opacity: 0 }"
+            :animate="{ y: 0, opacity: 1 }" :transition="{ duration: 0.5, ease: 'easeInOut' }">
+            {{ merchantInfo.name }}
+          </motion.h1>
+
+          <motion.h3 class=" text-center text-sm text-gray-500" :initial="{ opacity: 0 }" :animate="{ opacity: 1 }"
+            :transition="{ duration: 0.5, ease: 'easeInOut', delay: 0.5 }">
+            {{ merchantInfo.desc }}
+          </motion.h3>
+
+
+        </div>
+      </section>
+    
   </NuxtLayout>
 </template>

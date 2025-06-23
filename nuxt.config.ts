@@ -20,6 +20,7 @@ export default defineNuxtConfig({
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
     '@nuxt/image',
+    "motion-v/nuxt",
   ],
   css: ['~/assets/css/main.css'],
   nitro: { // 性能优化
