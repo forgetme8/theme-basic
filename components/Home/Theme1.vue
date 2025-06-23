@@ -45,6 +45,8 @@ const filterSkus = (projects, keyword = '', ) => {
     })
   })
 
+  
+
   cates.value = allCates
   skus.value = showSkus
 }
